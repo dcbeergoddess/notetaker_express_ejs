@@ -1,0 +1,25 @@
+{
+  "name": "notetaker_express_ejs",
+  "version": "1.0.0",
+  "description": "Bulding full CRUD application using node.js, express, and ejs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dcbeergoddess/notetaker_express_ejs.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dcbeergoddess/notetaker_express_ejs/issues"
+  },
+  "homepage": "https://github.com/dcbeergoddess/notetaker_express_ejs#readme",
+  "dependencies": {
+    "ejs": "^3.1.6",
+    "express": "^4.17.1",
+    "method-override": "^3.0.0",
+    "uuid": "^8.3.2"
+  }
+}
