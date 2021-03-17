@@ -12,6 +12,8 @@ app.use(express.json());
 //MIDDLEWARE - method-override
 app.use(methodOverride('_method'));
 
+//SERVE UP FILES WITH ASSETS
+app.use(express.static(path.join(__dirname, 'public')));
 //SET VIEW ENGINE FOR EJS
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, '/views'));
@@ -25,35 +27,42 @@ app.set('views', path.join(__dirname, '/views'));
 //FAKE DATABASE | ARRAY
 let notes = [
   {
-    "title":"Test Title",
-    "text":"Test text"
+    id: uuid(),
+    title: "Test Title",
+    text: "Test text"
   },
   {
-    "title":"FIRST TITLE",
-    "text":"Make application a full CRUD application"
+    id: uuid(),
+    title: "FIRST TITLE",
+    text: "Make application a full CRUD application"
   },
   {
-    "title":"Second Title",
-    "text":"Post to Github"
+    id: uuid(),
+    title: "Second Title",
+    text: "Post to Github"
   },
   {
-    "title":"Reminder",
-    "text":"Log work for 100-days of Code"
+    id: uuid(),
+    title: "Reminder",
+    text: "Log work for 100-days of Code"
   },
   {
-    "title":"TWEET",
-    "text":"Tweet you work for 100-days-of-code today"
+    id: uuid(),
+    title: "TWEET",
+    text: "Tweet you work for 100-days-of-code today"
   },
-]
+];
 
 //HOME PAGE
-
+app.get('/', (req, res) => {
+  res.render('index');
+})
 
 // GENERIC RESPONSE FOR WRONG PATHS - MAKE A VIEW FOR IT??
 app.get('*', (req, res) => {
   res.send(`I do not know that path!`)
-})
+});
 //EXPRESS SERVER LISTENING
 app.listen(PORT, () => {
   console.log(`LISTENING ON http://localhost:${PORT}`)
-})
+});
