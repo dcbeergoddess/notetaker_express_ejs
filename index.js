@@ -55,12 +55,12 @@ let notes = [
 
 //HOME PAGE
 app.get('/', (req, res) => {
-  res.render('index');
+  res.render('index', { notes });
 })
 
 // GENERIC RESPONSE FOR WRONG PATHS - MAKE A VIEW FOR IT??
 app.get('*', (req, res) => {
-  res.send(`I do not know that path!`)
+  res.render('error')
 });
 //EXPRESS SERVER LISTENING
 app.listen(PORT, () => {
