@@ -52,7 +52,7 @@ app.get('/', (req, res) => {
   res.render('home', { notes });
 })
 
-// NOTES INDEX/READ - list all notes
+// READ // NOTES - list all notes
 app.get('/notes', (req, res) => {
   res.render('notes/index', { notes })
 })
@@ -62,8 +62,13 @@ app.get('/notes/new', (req, res) => {
   res.render('notes/new');
 })
 
-// POST /notes - Create a new note 
-// app.post()
+// CREATE // NEW POST
+app.post("/notes", (req, res) => {
+  //DESTRUCTURE
+  const { title, text } = req.body;
+  notes.push({title, text, id: uuid()});
+  res.redirect('/notes');
+})
 
 // GET /notes/:id - Get one note (using ID)
 // PATCH /notes/:id - Update one note
