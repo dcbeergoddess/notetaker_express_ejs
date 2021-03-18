@@ -78,6 +78,27 @@ app.get("/notes/:id", (req, res) => {
 })
 
 // PATCH /notes/:id - Update one note
+// EDIT - NEED FORM TO TO EDIT POST;
+app.patch('/notes/:id', (req, res) => {
+  const { id } = req.params; //GET PAYLOAD
+  // console.log(req.params)
+  // console.log(req.body.title);
+  // console.log(req.body.text);
+  const newNoteTitle = req.body.title;
+  const newNoteText = req.body.text;
+  const ogNote = notes.find(n => n.id === id);
+  ogNote.title = newNoteTitle;
+  ogNote.text = newNoteText;
+  res.redirect('/notes');
+});
+//UPDATE NOTE WITH NEW INFO - PULL UP PAGE WITH EDIT FORM
+app.get('notes/:id/edit', (req, res) => {
+  const { id } = req.params;
+  const note = notes.find(n => n.id === id);
+  res.render('notes/edit', { note, id })
+})
+
+
 
 // DELETE /notes/:id - Destroy one note
 
