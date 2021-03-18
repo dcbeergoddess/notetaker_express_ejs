@@ -57,7 +57,7 @@ app.get('/notes', (req, res) => {
   res.render('notes/index', { notes })
 })
 
-//RENDER FORM TO CREATE NEW NOTE
+//FORM TO CREATE NEW NOTE
 app.get('/notes/new', (req, res) => {
   res.render('notes/new');
 })
@@ -67,11 +67,18 @@ app.post("/notes", (req, res) => {
   //DESTRUCTURE
   const { title, text } = req.body;
   notes.push({title, text, id: uuid()});
-  res.redirect('/notes');
+  res.redirect('/notes', { note, id });
 })
 
-// GET /notes/:id - Get one note (using ID)
+// SHOW // ONE NOTE BY ID
+app.get("/notes/:id", (req, res) => {
+  const { id } = req.params;
+  const note = notes.find(n => n.id === id);
+  res.render('notes/show', { note, id });
+})
+
 // PATCH /notes/:id - Update one note
+
 // DELETE /notes/:id - Destroy one note
 
 

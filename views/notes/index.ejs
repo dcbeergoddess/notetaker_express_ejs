@@ -6,10 +6,12 @@
 <a href="/">TAKE ME BACK HOME</a>
 <!-- CREATE container and TO LOOP THOUGH NOTES -->
 <div class="container">
-  <% for( let note of notes) { %>
-    <h2><%= note.title %> </h2>
-    <p><%= note.text %> </p>
+  <% for( let n of notes) { %>
+    <h2><%= n.title %> </h2>
+    <p><%= n.text %> </p>
+    <a href="/notes/<%=n.id%>">DETAILS</a>
   <% } %>
+  
 </div>
 
 
