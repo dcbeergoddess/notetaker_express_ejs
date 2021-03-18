@@ -1,0 +1,23 @@
+<%- include('../partials/head') %>
+  <%- include('../partials/navbar') %>
+
+    <h1>UPDATE A NOTE</h1>
+
+    <div class="container">
+      <form method="POST" action="/notes/<%=note.id%>?_method=PATCH"></form>
+      <section>
+        <label for="title">Note Title:</label>
+        <textarea name="text" id="title" cols="20" rows="1"><%= note.title %> </textarea>
+      </section>
+      <section>
+        <label for="text"></label>
+        <textarea name="text" id="text" cols="30" rows="10"><%= note.text %> </textarea>
+      </section>
+      <button type="submit">SAVE</button>
+      </form>
+    </div>
+
+    <a href="/">TAKE ME BACK HOME</a>
+
+
+    <%- include('../partials/footer') %>

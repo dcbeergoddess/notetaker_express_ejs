@@ -92,7 +92,7 @@ app.patch('/notes/:id', (req, res) => {
   res.redirect('/notes');
 });
 //UPDATE NOTE WITH NEW INFO - PULL UP PAGE WITH EDIT FORM
-app.get('notes/:id/edit', (req, res) => {
+app.get('/notes/:id/edit', (req, res) => {
   const { id } = req.params;
   const note = notes.find(n => n.id === id);
   res.render('notes/edit', { note, id })
