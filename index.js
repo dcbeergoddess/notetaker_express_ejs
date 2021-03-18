@@ -57,8 +57,14 @@ app.get('/notes', (req, res) => {
   res.render('notes/index', { notes })
 })
 
+//RENDER FORM TO CREATE NEW NOTE
+app.get('/notes/new', (req, res) => {
+  res.render('notes/new');
+})
 
 // POST /notes - Create a new note 
+// app.post()
+
 // GET /notes/:id - Get one note (using ID)
 // PATCH /notes/:id - Update one note
 // DELETE /notes/:id - Destroy one note

@@ -1,0 +1,22 @@
+<%- include('../partials/head') %>
+<%- include('../partials/navbar') %>
+
+  <h1>CREATE A NOTE</h1>
+
+  <div class="container">
+    <form method="POST" action="/notes"></form>
+    <section>
+      <label for="title">Note Title:</label>
+      <input type="text" id="title" name="title" placeholder="enter title">
+    </section>
+    <section>
+      <label for="text"></label>
+      <textarea name="text" id="text" cols="30" rows="10">Enter Note</textarea>
+    </section>
+    <button>Submit</button>
+  </div>
+
+  <a href="/">TAKE ME BACK HOME</a>
+
+
+<%- include('../partials/footer') %>
