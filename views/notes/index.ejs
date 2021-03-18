@@ -2,6 +2,15 @@
 <%- include('../partials/navbar') %> 
 
 <h1>MY NOTES</h1>
+
 <a href="/">TAKE ME BACK HOME</a>
+<!-- CREATE container and TO LOOP THOUGH NOTES -->
+<div class="container">
+  <% for( let note of notes) { %>
+    <h2><%= note.title %> </h2>
+    <p><%= note.text %> </p>
+  <% } %>
+</div>
+
 
 <%- include('../partials/footer') %> 
