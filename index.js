@@ -18,12 +18,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, '/views'));
 
-// GET /notes - list all notes
-// POST /notes - Create a new note 
-// GET /notes/:id - Get one note (using ID)
-// PATCH /notes/:id - Update one note
-// DELETE /notes/:id - Destroy one note
-
 //FAKE DATABASE | ARRAY
 let notes = [
   {
@@ -55,12 +49,24 @@ let notes = [
 
 //HOME PAGE
 app.get('/', (req, res) => {
-  res.render('index', { notes });
+  res.render('home', { notes });
 })
+
+// NOTES INDEX/READ - list all notes
+app.get('/notes', (req, res) => {
+  res.render('notes/index', { notes })
+})
+
+
+// POST /notes - Create a new note 
+// GET /notes/:id - Get one note (using ID)
+// PATCH /notes/:id - Update one note
+// DELETE /notes/:id - Destroy one note
+
 
 // GENERIC RESPONSE FOR WRONG PATHS - MAKE A VIEW FOR IT??
 app.get('*', (req, res) => {
-  res.render('error')
+  res.render('error');
 });
 //EXPRESS SERVER LISTENING
 app.listen(PORT, () => {
